@@ -1,0 +1,9 @@
+on post-fs-data
+    # Create an additional OTA package directory that unlike /data/ota_package
+    # will not be touched by GmsCore.
+    mkdir /data/system_updates 0770 system cache encryption=None
+    mkdir /data/lineageos_updates 0770 system cache encryption=Require
+    # Create directory for elixir updater to store its assets
+    mkdir /data/elixir 0777 system system
+    mkdir /data/elixir/overlays 0777 system system
+    mkdir /data/elixir/wallpaper 0777 system system
